@@ -11,9 +11,13 @@ class PricingPage {
 
   /* On "Lodgify Pricing" page, add a test to verify that the change of currency (located just below the pricing options) properly changes the currency of the pricing options.
     The way you do so, and the extra verification steps are up to you (such as verifying the currency price difference) */
-  verifyCurrenceChange () {
-    const currencies = cy.get('.price-currency-select')
-    currencies.click;
+  verifyCurrenceChange() {
+    cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text').then(($value_1) => {
+      cy.get('.price-currency-select').select('gbp')
+      cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text').then(($value_2) => { 
+        expect($value_1).to.not.equal($value_2)
+      })
+    })
   }
 
   /* Using your own criteria, add tests according to what you think should be important to cover in this page "Lodgify Pricing". (Optional) */
