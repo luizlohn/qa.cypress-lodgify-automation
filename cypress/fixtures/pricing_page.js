@@ -12,7 +12,7 @@ class PricingPage {
   /* On "Lodgify Pricing" page, add a test to verify that the change of currency (located just below the pricing options) properly changes the currency of the pricing options.
     The way you do so, and the extra verification steps are up to you (such as verifying the currency price difference) */
   verifyCurrenceChange () {
-    const currencies = cy.get('.price-currency-select');
+    const currencies = cy.get('.price-currency-select')
     currencies.click;
   }
 
@@ -20,8 +20,7 @@ class PricingPage {
   verifyChangeMonths () {
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').then(($value) => {
       const getText = $value.text();
-      cy.log(getText);
-      if (getText == '$12') {
+      if (getText === '$12') {
         cy.get('#scroll-prop-plan').clear().type('70');
         const change = cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price');
         change.contains('$74');

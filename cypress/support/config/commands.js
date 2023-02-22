@@ -23,14 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('visitContact',()=>{
-    cy.visit('http://localhost:8080/Contact.html')
-    cy.title().should('include', 'Contact');
-})
+Cypress.Commands.add('visitContact', () => {
+  cy.visit('http://localhost:8080/Contact.html');
+  cy.title().should('include', 'Contact');
+});
 
-Cypress.Commands.add('visitPricing',()=>{
-    cy.visit('http://localhost:8080/pricing.html')
-})
+Cypress.Commands.add('visitPricing', () => {
+  cy.visit('http://localhost:8080/pricing.html');
+});
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

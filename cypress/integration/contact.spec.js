@@ -32,3 +32,17 @@ context('Fields Validation', () => {
     new ContactPage().setComments();
   });
 });
+
+context('Send a contact forms', () => {
+  it('"Send a forms with all fields fill ', () => {
+    cy.visitContact();
+    new ContactPage().setName('Name to use');
+    new ContactPage().setEmail('Email@test.com.br');
+    new ContactPage().setPhone('4842166155');
+    new ContactPage().setGuests('5');
+    new ContactPage().setComments();
+    new ContactPage().setDataTravel();
+    cy.contains('button', 'Send').click();
+    cy.get('[data-testid="form"] > .success', { timeout: 10000 }).and('be.visible').should('contain', 'Your request has been sent successfully.');
+});
+});

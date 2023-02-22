@@ -9,7 +9,7 @@ class ContactPage {
 
   getPhoneValidation () {
     cy.contains('button', 'Send').click();
-    const test = cy.get('[data-testid=form]')
+    cy.get('[data-testid=form]')
       .get('.PhoneInput').should('have.text', 'Name is mandatory');
   }
 
@@ -23,6 +23,22 @@ class ContactPage {
     cy.contains('button', 'Send').click();
     cy.get('[data-testid=form]')
       .get(':nth-child(4) > .input > .ui').should('have.text', 'Comment is mandatory');
+  }
+
+  setName (name) {
+    cy.get('[data-testid="form"] > :nth-child(1) > :nth-child(1) > .ui > input').type(name);
+  }
+
+  setPhone (phone) {
+    cy.get('.PhoneInput').type(phone);
+  }
+
+  setEmail (email) {
+    cy.get('.eight > .ui > input').type(email);
+  }
+
+  setGuests (guests) {
+    cy.get('.four > .ui > input').type(guests);
   }
 
   setDataTravel () {
