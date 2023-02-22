@@ -1,25 +1,20 @@
-import PricingPage from "../fixtures/pricing_page";
-require('../support/e2e.js')
+import PricingPage from '../fixtures/pricing_page';
+require('../support/e2e.js');
 
 context('Fields Validation', () => {
   it('Should Display the correct value of price', () => {
     cy.visitPricing();
 
-    new PricingPage().validateYearlyPlanValue()
-
-
-  })
+    new PricingPage().validateYearlyPlanValue();
+  });
   it('Currency properly changes the currency of the pricing options', () => {
-    cy.visitPricing()    
+    cy.visitPricing();
 
-    new PricingPage().verifyCurrenceChange()
-
-  })
+    new PricingPage().verifyCurrenceChange();
+  });
   it('Months changes pricing options', () => {
-    cy.visitPricing()
+    cy.visitPricing();
 
-    new PricingPage().verifyChangeMonths()
-
-  })
-})
-
+    new PricingPage().verifyChangeMonths();
+  });
+});
