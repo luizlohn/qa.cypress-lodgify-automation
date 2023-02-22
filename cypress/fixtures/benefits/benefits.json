@@ -1,0 +1,47 @@
+{
+    "starter": {
+        "booking": "Booking Fee of 1.9%",   
+        "bookable": "Bookable Website",
+        "property": "Property Management System",
+        "channel": "Channel Manager",
+        "reservation": "Reservation & Payment System",
+        "app": "Mobile App",
+        "inbox": "Reservation Inbox",
+        "domain": "Free Domain",
+        "scheduled": "Scheduled Payments"
+    },"professional": {
+        "booking": "Booking Fee of 0%",   
+        "bookable": "Bookable Website",
+        "property": "Property Management System",
+        "channel": "Channel Manager",
+        "reservation": "Reservation & Payment System",
+        "app": "Mobile App",
+        "inbox": "Reservation Inbox",
+        "domain": "Free Domain",
+        "scheduled": "Scheduled Payments",
+        "manual": "Manual Payments",
+        "damage": "Damage Pre-authorization"
+    }, "ultimate": {
+        "booking": "Booking Fee of 0%",   
+        "bookable": "Bookable Website",
+        "property": "Property Management System",
+        "channel": "Channel Manager",
+        "reservation": "Reservation & Payment System",
+        "app": "Mobile App",
+        "inbox": "Reservation Inbox",
+        "domain": "Free Domain",
+        "scheduled": "Scheduled Payments",
+        "manual": "Manual Payments",
+        "damage": "Damage Pre-authorization",
+        "dashboard": "Expanded Dashboard",
+        "task": "Task Management",
+        "accounting": "Accounting",
+        "report": "Expense Reporting",
+        "owner_report": "Owner Reports",
+        "owner_payment": "Owner Payments",
+        "guest_app": "Guest App",
+        "priorite": "Priority Customer Support"
+    }
+
+}
+
