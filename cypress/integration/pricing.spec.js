@@ -1,11 +1,30 @@
 require('../support/e2e.js');
 
-context('Fields Validation', () => {
-  let data;
+context('Pricing Validation', () => {
+  let benefits;
+  before(function () {
+    cy.visitPricing();
+    cy.fixture('benefits/benefits.json').then(function (fdata) {
+      benefits = fdata;
+    });
+  });
+
+  it('Verify text of plans', () => {
+    cy.get('body > div.content-wrapper > div.section.pad-top-0.pad-bot-2 > div.container-fluid > div.row.halign-center.price-grid > div.col-auto.price-card-starter > div > div.plan-feature-lists.wd-lg.push-top-2 > ul').each((item, index) => {
+      cy.log(item)
+      cy.wrap(item)
+        .should('not.contain.text', benefits.professional.scheduled);
+    })
+  });
+});
+
+
+context('Pricing Validation', () => {
+  let price;
   before(function () {
     cy.visitPricing();
     cy.fixture('benefits/prices.json').then(function (fdata) {
-      data = fdata;
+      price = fdata;
     });
   });
 
@@ -21,44 +40,39 @@ context('Fields Validation', () => {
     cy.get('#scroll-prop-plan').clear().type('1');
     cy.get('.price-currency-select').select('eur');
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text')
-      .should('contains', data.year.starter.eur);
+      .should('contains', price.year.starter.eur);
 
     cy.get('.price-currency-select').select('usd');
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text')
-      .should('contains', data.year.starter.usd);
+      .should('contains', price.year.starter.usd);
   });
 
   it('Change currence: USD to GBP', () => {
     cy.get('#scroll-prop-plan').clear().type('1');
     cy.get('.price-currency-select').select('usd');
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text')
-      .should('contains', data.year.starter.usd);
+      .should('contains', price.year.starter.usd);
     cy.get('.price-currency-select').select('gbp');
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text')
-      .should('contains', data.year.starter.gbp);
+      .should('contains', price.year.starter.gbp);
   });
 
   it('Change currence: GBP to USD', () => {
     cy.get('#scroll-prop-plan').clear().type('1');
     cy.get('.price-currency-select').select('gbp');
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text')
-      .should('contains', data.year.starter.gbp);
+      .should('contains', price.year.starter.gbp);
 
     cy.get('.price-currency-select').select('usd');
     cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').invoke('text')
-      .should('contains', data.year.starter.usd);
+      .should('contains', price.year.starter.usd);
   });
 
   it('Months changes pricing options', () => {
-    cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').then(($value) => {
-      const getText = $value.text();
-      if (getText === '$12') {
-        cy.get('#scroll-prop-plan').clear().type('70');
-        const change = cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price');
-        change.contains('$74');
-      }
+    if (cy.get(':nth-child(1) > .price-item > :nth-child(1) > .plan-price').invoke('text') == '$12') {
+      cy.get('#scroll-prop-plan').clear().type('70');
+      cy.get('.price-card-starter > .price-item > :nth-child(1) > .plan-price').should('contains', '$74');
     }
-    );
   });
   it('Verify text of plans', () => {
     // cy.log(data.starter.booking);
