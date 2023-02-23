@@ -1,5 +1,3 @@
-
-
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -25,3 +23,32 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import faker from '@faker-js/faker';
+
+Cypress.Commands.add('visitContact', () => {
+  cy.visit('/Contact.html');
+  cy.title().should('include', 'Contact');
+});
+
+Cypress.Commands.add('visitPricing', () => {
+  cy.visit('/pricing.html');
+});
+
+Cypress.Commands.add('submitContactForm', (contact) => {
+  cy.get('input[placeholder="Name"]').type(contact.name);
+  cy.get('input[placeholder="Email"]').type(contact.email);
+  cy.get('input[placeholder="Phone"]').type(contact.phone);
+  cy.get('input[placeholder="Guests"]').type(contact.guests);
+  cy.selectArrivalAndDepartureDate(contact.arrival, contact.departure);
+  cy.get('textarea[placeholder="Comment"]').type(faker.lorem.sentences(2));
+  cy.contains('button', 'Send').click();
+});
+
+Cypress.Commands.add('selectArrivalAndDepartureDate', (arrival, departure) => {
+  cy.get('.DateRangePickerInput_calendarIcon').click();
+  cy.get('.DayPickerNavigation_rightButton__horizontalDefault > .DayPickerNavigation_svg__horizontal').click();
+  cy.get(`td[aria-label=${arrival}]`).click();
+  cy.get('.DayPickerNavigation_rightButton__horizontalDefault > .DayPickerNavigation_svg__horizontal').click();
+  cy.get('.DayPickerNavigation_rightButton__horizontalDefault > .DayPickerNavigation_svg__horizontal').click();
+  cy.get(`td[aria-label=${departure}]`).click();
+});

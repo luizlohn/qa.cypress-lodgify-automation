@@ -10,6 +10,7 @@
   "author": "Lodgify QA Team",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "cypress": "^9.5.3",
     "eslint": "^8.34.0",
     "eslint-config-semistandard": "^17.0.0",
@@ -23,5 +24,9 @@
     "install-all": "npm install && cd server && npm install",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run --browser chrome"
+  },
+  "dependencies": {
+    "faker": "^6.6.6",
+    "faker-js": "^1.0.0"
   }
 }
