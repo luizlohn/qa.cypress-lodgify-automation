@@ -1,6 +1,6 @@
 require('../support/e2e.js');
 
-context('Pricing Validation', () => {
+context('Text Plans', () => {
   let benefits;
   before(function () {
     cy.visitPricing();
@@ -10,12 +10,9 @@ context('Pricing Validation', () => {
   });
 
   it('Verify text of plans', () => {
-    cy.get('body > div.content-wrapper > div.section.pad-top-0.pad-bot-2 > div.container-fluid > div.row.halign-center.price-grid > div.col-auto.price-card-starter > div > div.plan-feature-lists.wd-lg.push-top-2 > ul').each((item, index) => {
-      cy.log(item)
-      cy.wrap(item)
-        .should('not.contain.text', benefits.professional.scheduled);
-    })
-  });
+    const teste = cy.get('body > div.content-wrapper > div.section.pad-top-0.pad-bot-2 > div.container-fluid > div.row.halign-center.price-grid > div.col-auto.price-card-starter > div > div.plan-feature-lists.wd-lg.push-top-2 > ul')
+    expect(teste).to.not.contains(benefits.professional)
+});
 });
 
 
