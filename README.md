@@ -2,7 +2,7 @@
 
 ## How to Configure Environment
 
-### Install NOde dependencies
+### Install Node dependencies
 
 Access to step-by-step help:
 
@@ -11,15 +11,13 @@ Access to step-by-step help:
 - Execute: $ npm run install-all
 
 ### Running Local Server
-
 - Execute: $ npm run-script dev-server
 
-### Start Testing
+### Start Testing Locally
 
 - Execute: $npm run cy:run
 
-```
 
-### PlayList listened to do this project: ###
+#### PlayList listened to do this project: ####
 [Rap Podium](https://music.youtube.com/playlist?list=RDCLAK5uy_mK9RSAOLuO3PT_u74S1YJzlUneNOgTUTE)
-```
+
