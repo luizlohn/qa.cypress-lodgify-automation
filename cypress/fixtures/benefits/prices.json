@@ -1,0 +1,36 @@
+{
+    "year": {
+        "starter": {
+            "eur": "11€",   
+            "usd": "$12",
+            "gbp": "£10"
+
+        },"professional": {
+            "eur": "28€",   
+            "usd": "$32",
+            "gbp": "£24"
+
+        }, "ultimate": {
+            "eur": "43€",   
+            "usd": "$48",
+            "gbp": "£39"
+        }   
+    },    "monthly": {
+        "starter": {
+            "eur": "16€",   
+            "usd": "$17",
+            "gbp": "£14"
+
+        },"professional": {
+            "eur": "40€",   
+            "usd": "$46",
+            "gbp": "£34"
+
+        }, "ultimate": {
+            "eur": "61€",   
+            "usd": "$59",
+            "gbp": "£59"
+        }   
+    }
+}
+

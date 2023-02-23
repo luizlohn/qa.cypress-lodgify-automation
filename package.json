@@ -1,0 +1,32 @@
+{
+  "name": "lodgify-automation-qa-test",
+  "description": "Lodgify QA automation challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GilbertoGNG/Lodgify-Automation-QA-Test.git"
+  },
+  "author": "Lodgify QA Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^9.5.3",
+    "eslint": "^8.34.0",
+    "eslint-config-semistandard": "^17.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1"
+  },
+  "scripts": {
+    "dev-server": "node server/server.js",
+    "install-all": "npm install && cd server && npm install",
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run --browser chrome"
+  },
+  "dependencies": {
+    "faker": "^6.6.6",
+    "faker-js": "^1.0.0"
+  }
+}
