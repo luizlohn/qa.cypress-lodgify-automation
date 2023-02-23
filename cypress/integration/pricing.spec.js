@@ -1,9 +1,11 @@
 require('../support/e2e.js');
 
 describe('Prices Features', () => {
+  // Instance prices and benefits
   const prices = require('../fixtures/benefits/prices.json');
   const benefits = require('../fixtures/benefits/benefits.json');
 
+  //Before Each teste
   beforeEach(() => {
     cy.visitPricing();
   });
@@ -13,6 +15,7 @@ describe('Prices Features', () => {
       const teste = cy.get('body > div.content-wrapper > div.section.pad-top-0.pad-bot-2 > div.container-fluid > div.row.halign-center.price-grid > div.col-auto.price-card-starter > div > div.plan-feature-lists.wd-lg.push-top-2 > ul');
       expect(teste).to.not.contains(benefits.professional);
     });
+    
     it('Should Display the correct value of price', () => {
       cy.get('[data-price-period="2"]').contains('Yearly');
       cy.get('#scroll-prop-plan').clear().type('50');
