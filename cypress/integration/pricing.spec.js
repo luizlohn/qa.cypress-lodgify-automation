@@ -1,4 +1,4 @@
-require('../support/commands');
+require('../support/e2e.js');
 
 describe('Prices Features', () => {
   const prices = require('../fixtures/benefits/prices.json');
